@@ -22,7 +22,7 @@
 - O registro de presenças, por padrão, deve utilizar a data atual;
 
 ### Regras de negócio
-- Valores do pagamento periódico não devem ser fixos, pois o cliente realiza acordos específicos para cada atleta;
+- Valores do pagamento periódico não deve ser fixo, pois o cliente realiza acordos específicos para cada atleta;
 - O atleta existente que indicar mais atletas a serem matriculados deve receber descontos em sua mensalidade, seguindo a regra:
   - Uma indicação: 10% de desconto;
   - Duas indicações: 15% de desconto;
