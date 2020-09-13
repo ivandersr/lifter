@@ -1,4 +1,9 @@
-# Lifter - Requisitos do sistema
+# Lifter
+
+## Proposta
+Este é o backend de um sistema para gerencimento de academias, no qual o usuário poderá cadastrar e manipular dados referentes a atletas, planos, aulas e movimentações financeiras de entrada e saída.
+
+## Requisitos do sistema
 
 ### Requisitos Funcionais
 - O usuário deve ter a possibilidade de cadastrar um novo plano de matrícula, contendo nome e custo;
