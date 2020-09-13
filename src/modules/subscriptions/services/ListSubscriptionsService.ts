@@ -1,6 +1,5 @@
 import SubscriptionsRepository from '../infra/typeorm/repositories/SubscriptionsRepository';
 
-import ICreateSubscriptionDTO from '../dtos/ICreateSubscriptionDTO';
 import Subscription from '../infra/typeorm/entities/Subscription';
 
 class ListSubscriptionsService {

@@ -1,4 +1,4 @@
-import SubscriptionsRepository from "../infra/typeorm/repositories/SubscriptionsRepository";
+import SubscriptionsRepository from '../infra/typeorm/repositories/SubscriptionsRepository';
 
 class DeleteSubscriptionService {
   private subscriptionsRepository = new SubscriptionsRepository();

@@ -1,8 +1,9 @@
 import { Router } from 'express';
-import SubscriptionsRepository from '../../typeorm/repositories/SubscriptionsRepository';
 
 import ListSubscriptionsService from '@modules/subscriptions/services/ListSubscriptionsService';
 import DeleteSubscriptionService from '@modules/subscriptions/services/DeleteSubscriptionService';
+import UpdateSubscriptionService from '@modules/subscriptions/services/UpdateSubscriptionService';
+import CreateSubscriptionService from '@modules/subscriptions/services/CreateSubscriptionService';
 
 const subscriptionsRouter = Router();
 
@@ -17,14 +18,14 @@ subscriptionsRouter.get('/', async (request, response) => {
 subscriptionsRouter.post('/', async (request, response) => {
   const { title, value } = request.body;
 
-  const subscriptionsRepository = new SubscriptionsRepository();
+  const createSubscription = new CreateSubscriptionService();
 
-  const subscription = await subscriptionsRepository.create({
+  const subscription = await createSubscription.execute({
     title,
     value,
   });
 
-  return response.json(subscription);
+  return response.status(201).json(subscription);
 });
 
 subscriptionsRouter.delete('/:id', async (request, response) => {
@@ -41,7 +42,11 @@ subscriptionsRouter.put('/:id', async (request, response) => {
   const { id } = request.params;
   const { title, value } = request.body;
 
-  return response.status(200).json();
-})
+  const updateSubscription = new UpdateSubscriptionService();
+
+  const subscription = await updateSubscription.execute({ id, title, value });
+
+  return response.status(200).json(subscription);
+});
 
 export default subscriptionsRouter;

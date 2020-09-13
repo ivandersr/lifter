@@ -14,10 +14,18 @@ class UpdateSubscriptionService {
     const subscription = await this.subscriptionsRepository.findById(id);
 
     if (!subscription) {
-      throw new AppError('This title is already in use', 400);
+      throw new AppError('Subscription not found', 404);
     }
 
-    // TODO atualização de informações
+    if (title) {
+      subscription.title = title;
+    }
+
+    if (value) {
+      subscription.value = value;
+    }
+
+    await this.subscriptionsRepository.save(subscription);
 
     return subscription;
   }

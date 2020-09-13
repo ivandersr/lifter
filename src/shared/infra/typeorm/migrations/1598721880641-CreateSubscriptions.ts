@@ -1,10 +1,11 @@
-import {MigrationInterface, QueryRunner, Table} from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateSubscriptions1598721880641 implements MigrationInterface {
-
-    public async up(queryRunner: QueryRunner): Promise<void> {
-      await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
-      await queryRunner.createTable(new Table({
+export default class CreateSubscriptions1598721880641
+  implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
+    await queryRunner.createTable(
+      new Table({
         name: 'subscriptions',
         columns: [
           {
@@ -21,13 +22,13 @@ export class CreateSubscriptions1598721880641 implements MigrationInterface {
           {
             name: 'value',
             type: 'decimal',
-          }
-        ]
-      }))
-    }
+          },
+        ],
+      }),
+    );
+  }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-      await queryRunner.dropTable('subscriptions');
-    }
-
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable('subscriptions');
+  }
 }
